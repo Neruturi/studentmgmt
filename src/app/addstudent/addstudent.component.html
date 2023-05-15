@@ -1,0 +1,84 @@
+<!-- <p>addstudent works!</p> -->
+<div>
+<h1 nz-row nzJustify="center"> Add New Student </h1>
+<hr>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+      <input nz-input formControlName="name" placeholder="enter student's name" />
+      <ng-template #userErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Please input student's name!</ng-container>
+        <!-- <ng-container *ngIf="control.hasError('duplicated')">The username is redundant!</ng-container> -->
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired nzFor="subject"> Subject </nz-form-label>
+    <nz-form-control>
+    <!-- </nz-form-control> [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl"> -->
+      <!-- <input nz-input formControlName="email" placeholder="email" type="email" /> -->
+          <nz-select style="width: 20%;" formControlName="subject">
+            <nz-option nzValue="Maths" nzLabel="Maths"></nz-option>
+            <nz-option nzValue="Science" nzLabel="Science"></nz-option>
+            <nz-option nzValue="Social" nzLabel="Social"></nz-option>
+            <nz-option nzValue="English" nzLabel="English"></nz-option>
+            <nz-option nzValue="Physics" nzLabel="Physics"></nz-option>
+          </nz-select>
+      <!-- <ng-template #emailErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('email')">The input is not valid Subject!</ng-container>
+        <ng-container *ngIf="control.hasError('required')">Please input your E-mail!</ng-container>
+      </ng-template> -->
+
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item >
+    <nz-form-label [nzSpan]="7" nzRequired> Grade </nz-form-label>
+    <!-- <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your password!">
+      <input nz-input type="password" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
+    </nz-form-control> -->
+    <nz-radio-group formControlName="grade">
+      <label nz-radio-button nzValue="A">A</label>
+      <label nz-radio-button nzValue="B">B</label>
+      <label nz-radio-button nzValue="C">C</label>
+      <label nz-radio-button nzValue="D">D</label>
+    </nz-radio-group>
+  </nz-form-item>
+
+  <!-- <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Confirm Password</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+      <input nz-input type="password" formControlName="confirm" placeholder="confirm your password" />
+      <ng-template #passwordErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+        <ng-container *ngIf="control.hasError('confirm')">Password is inconsistent!</ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item> -->
+  
+  <!-- <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Comment</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write something here!"> -->
+      <!-- <nz-textarea-count [nzMaxCharacterCount]="2000"> -->
+        <!-- <textarea formControlName="comment" nz-input rows="2" placeholder="write any thing"></textarea> -->
+      <!-- </nz-textarea-count> -->
+   <!-- </nz-form-control> -->
+  <!-- </nz-form-item> -->
+
+  <nz-form-item> 
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid" (click)="postStudentDetails()">
+        {{editmode ? 'ConfirmEdit': 'Add'}}
+      </button>
+      <button nz-button (click)="oncancel()"> Cancel </button>
+      <!-- <button nz-button (click)="resetFo>Reset</button> -->
+    </nz-form-control>
+  </nz-form-item>
+  
+</form>
+
+</div>
+
+

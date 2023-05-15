@@ -1,0 +1,656 @@
+<!-- <p>dashboard works!</p> -->
+<!-- <div nz-row nzJustify="space-around"> -->
+<h2 style="text-align:center"> Student Management Database </h2>
+<!-- nz-col nzSpan="6" nzOffset="10"
+  zorro provides 24 grid n offset  starts the left after shifting 6 spaces to the right-->
+<!-- <nz-grid [nzGutter]="16"> -->
+  <!-- <div nz-row> -->
+ <div nz-row nzJustify="center">
+  
+      <p nz-col nzSpan="12"> Total students :{{studentdata.length}}</p>
+    <!-- </div> -->
+    <!-- <div > -->
+      <button  nz-button nzType="primary" (click)="onaddstudent()"> Add student </button>
+    <!--nz-col nzOffset="18" nzSpan="6" </div> -->
+  <!-- </div> -->
+
+  </div>
+
+<!-- </nz-grid> -->
+<div nz-row nzJustify="center">
+<nz-table [nzData]="studentdata" [nzTotal]="studentdata.length" [nzPageSize]="3" style= "width:850px ; text-align: center" [nzScroll]="{ y: '180px' }"> 
+  <!--  [nzTotal]={{studentdata.length}}  [nzPageSize]="3"  class="nz-text-center"-->
+  <!--  -->
+  <!-- 'calc(100vh - 100px)' -->
+          <thead>                                                                                                                       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+          
+            
+            <tr>
+              <th nzWidth="10%" style="text-align:center"> Id </th>
+              <th nzWidth="20%" style="text-align:center"> Name</th>
+              <th nzWidth="20%" style="text-align:center"> Subject</th>
+              <th nzWidth="20%" style="text-align:center"> Grade </th>
+              <th nzWidth="20%" style="text-align:center">Action</th>
+              <!-- style="width:50px" <th></th> -->
+            </tr>
+          </thead>
+          <tbody class="nz-text-center">
+            <tr *ngFor="let s of studentdata"> 
+              <!-- to access obj property,use dot or sqbraces -->
+              <td style="text-align:center">{{s.id }}</td>
+              <!-- s.id is taken as req id row to be deleted -->
+              <td style="text-align:center">{{s['name'] }}</td>
+              <td style="text-align:center">{{s['subject'] }}</td>
+              <td style="text-align:center">{{s['grade'] }}</td>
+              
+              <td> 
+                <!-- <nz-space> -->
+                  <div nz-row nzJustify="space-between">
+                  <!-- <button *nzSpaceItem [nzSize]="'large'" nz-button nzType="primary" (click)="onedit(s.id,s)" > 
+                    Edit </button> -->
+                    <a (click)="onedit(s.id,s)" > Edit  </a>
+                  <!-- method from .htnl defined in .ts -->
+                  <!-- <button *nzSpaceItem [nzSize]="'large'"  nz-button nzDanger (click)="ondelete(s.id)"> Delete </button> -->
+                   <!-- <a *nzSpaceItem >     </a> -->
+                  <a nz-popconfirm
+                  [nzPopconfirmVisible]="popconfirm"
+                    nzPopconfirmTitle="Are you sure delete this task?"
+                    nzPopconfirmPlacement="bottom" 
+                    (nzOnConfirm)="confirm(s.id)"
+                    (nzOnCancel)="cancel()"
+                    style="color:red">
+                    Delete
+                  </a>
+                </div>
+                <!-- </nz-space> -->
+               
+              </td>
+      
+      <!-- *nzSpaceItem small to large; nzsize is size of btn -->
+            </tr>
+      
+          </tbody>
+          
+        </nz-table>
+
+      </div>
+
+          <div nz-row nzJustify="center">
+          <button nz-button nzType="primary" (click)="onlogout()" style="background-color:#ffcc00"> Logout </button>
+          <!-- nzOffset="12" nzSpan="12" -->
+         </div>
+      
+  

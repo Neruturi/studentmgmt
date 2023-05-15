@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "name": "abc",
+      "subject": "Science",
+      "grade": "A",
+      "id": 1
+    },
+    {
+      "name": "hkjs",
+      "subject": "Social",
+      "grade": "A",
+      "id": 3
+    },
+    {
+      "name": "kjkj",
+      "subject": "English",
+      "grade": "A",
+      "id": 4
+    }
+  ]
+}
